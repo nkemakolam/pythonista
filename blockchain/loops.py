@@ -4,6 +4,9 @@ loop over an iterable like a list
  the for loop goes ove the iterable numbers of ti e that is equalent to the lenght of the iterable
  while loop on the other hand execute on tile a certain condition
  is true see sample of the for and the while loop
+
+ Now keep in mind the break and continue key word which is very good for quiting (break)
+ or skiping an iteration in a loop then continuing the loop
 """
 while True:
     tx_amount = get_user_input()

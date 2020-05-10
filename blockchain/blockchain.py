@@ -13,10 +13,21 @@ def add_value(transaction_amount, last_transaction=[1]):
     blockchain.append([last_transaction, transaction_amount])
     print(blockchain)
 
-def get_user_input():
-    return float(input("Your tarnasaction amount please: "))
+def get_transaction_value():
+    user_input= float(input("Your tarnasaction amount please: "))
+    return user_input
 
-tx_amount = get_user_input()
+def get_user_choice():
+    user_input = input('Your choice: ')
+    return user_input
+
+def print_blockchain_element():
+    
+    for block in blockchain:
+        print('Outputting Block')
+        print(block)
+
+tx_amount = get_transaction_value()
 add_value(tx_amount)
 
 """ Here we could stop usin the repition of user input using while loop this could make a very good 
@@ -24,12 +35,18 @@ add_value(tx_amount)
    note that while true would always execute becaus etrue will always be true
 """
 while True:
-    tx_amount = get_user_input()
-    add_value(tx_amount, get_last_blockchain_value())
+    print('Please make a choice: ')
+    print('1: Add a new transaction value')
+    print('2: I want to output the blockchain block')
+    user_choice = get_user_choice()
+    if user_choice == '1':
+        tx_amount = get_transaction_value()
+        add_value(tx_amount, get_last_blockchain_value())
+    elif user_choice == '2':
+        print_blockchain_element()
+    else:
+        print('you have made an ivalide selection')
+       
 
-# Looping through the block here we would be using the two type of loo in  python to loop through the block chain
-    for block in blockchain:
-        print('Outputting Block')
-        print(block)
         
 Print("Done!")
