@@ -30,6 +30,8 @@ def print_blockchain_element():
     for block in blockchain:
         print('Outputting Block')
         print(block)
+    else:
+        print('-'*20)
 
 def verify_chain():
     block_index = 0
@@ -37,8 +39,7 @@ def verify_chain():
     for block in blockchain:
         if block_index == 0:
             block_index = block_index + 1 #same as block_index =+ 1
-            continue
-        #print(block)
+            continue           
         elif block[0] == blockchain[block_index -1]:
             is_valid = True
         else:
