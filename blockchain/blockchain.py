@@ -31,6 +31,25 @@ def print_blockchain_element():
         print('Outputting Block')
         print(block)
 
+def verify_chain():
+    block_index = 0
+    is_valid = True
+    for block in blockchain:
+        if block_index == 0:
+            block_index = block_index + 1 #same as block_index =+ 1
+            continue
+        #print(block)
+        elif block[0] == blockchain[block_index -1]:
+            is_valid = True
+        else:
+            is_valid = False
+            break
+        block_index =+ 1
+    return is_valid
+
+
+
+
 """ Here we could stop usin the repition of user input using while loop this could make a very good 
    interface  as would be demonstrated below
    note that while true would always execute becaus etrue will always be true
@@ -53,8 +72,10 @@ while True:
     elif user_choice == 'q':
         break
     else:
-        print('you have made an ivalide selection')
+        print('you have made an ivalide selection please select from the list of option')
        
-
+    if not verify_chain():
+        print('invalide blockchain')
+        break
         
 print("Done!")
