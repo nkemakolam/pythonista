@@ -48,18 +48,18 @@ def verify_chain():
     return is_valid
 
 
-
+waiting_for_input = True
 
 """ Here we could stop usin the repition of user input using while loop this could make a very good 
    interface  as would be demonstrated below
    note that while true would always execute becaus etrue will always be true
 """
-while True:
+while waiting_for_input:
     print('Please make a choice: ')
     print('1: Add a new transaction value')
     print('2: I want to output the blockchain block')
     print('h: Manipulate the chain')
-    print('Quit')
+    print('q: For Quit')
     user_choice = get_user_choice()
     if user_choice == '1':
         tx_amount = get_transaction_value()
@@ -70,7 +70,7 @@ while True:
         if len(blockchain)>= 1:
             blockchain[0]=[2]
     elif user_choice == 'q':
-        break
+        waiting_for_input: False
     else:
         print('you have made an ivalide selection please select from the list of option')
        
