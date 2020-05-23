@@ -1,0 +1,9 @@
+{% with messages = get_flash_messages() %}
+  {% if messages %}
+   <h1>{{ messages }}</h1>
+  {% else %}
+      <script type ="text/script">
+         window.alert("{{ messages[0] }}");
+      </script>
+  {% endif %}
+{% endwith %}
