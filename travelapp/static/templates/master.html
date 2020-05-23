@@ -1,1 +1,8 @@
-<h1>{{ mesage }}</h1>
+{% if message %}
+   <h1>{{ message }}</h1>
+{% else %}
+   <script>
+     window.alert("No message Specified")
+   </script>
+   
+{% endif %}
