@@ -32,20 +32,32 @@ def print_blockchain_element():
         print(block)
     else:
         print('-'*20)
-
+"""
+Things to note about pythonas a language there is no switch case in python
+Also we dont have the for loop like in java script and other langause as shown
+for  (i=0;i<10;i++) instead we use a special function to achiev it this function is caled Range()
+"""
 def verify_chain():
-    block_index = 0
+    #block_index = 0
     is_valid = True
-    for block in blockchain:
+    for block_index in range(len(blockchain)):
         if block_index == 0:
-            block_index = block_index + 1 #same as block_index =+ 1
-            continue           
-        elif block[0] == blockchain[block_index -1]:
+            continue         
+        elif blockchain[block_index][0] == blockchain[block_index - 1]:
             is_valid = True
         else:
             is_valid = False
-            break
-        block_index =+ 1
+
+    # for block in blockchain:
+    #     if block_index == 0:
+    #         block_index = block_index + 1 #same as block_index =+ 1
+    #         continue           
+    #     elif block[0] == blockchain[block_index -1]:
+    #         is_valid = True
+    #     else:
+    #         is_valid = False
+    #         break
+    #     block_index =+ 1
     return is_valid
 
 
@@ -76,6 +88,7 @@ while waiting_for_input:
         print('you have made an ivalide selection please select from the list of option')
        
     if not verify_chain():
+        print_blockchain_element()
         print('invalide blockchain')
         break
         
