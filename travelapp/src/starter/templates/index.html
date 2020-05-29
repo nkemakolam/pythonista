@@ -45,6 +45,40 @@
                 </div>
             </div>
         </div>
+        <div class="container">
+            <div class="row">
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Result</h4>
+                            </div>
+                            <div class="modal-body"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <script type="text/javascript">
+                    // If flash messages are queued up, show them in a modal dialog box
+                    var messages = {{ messages | safe }};
+                    body = $(".modal-body");
+                    body.empty();
+        
+                    for (i=0; i<messages.length; i++) {
+                        body.append("<h2>" +  messages[i] + "</h2>");
+                    }
+        
+                    $("#myModal").modal("show");
+                </script>
+            {% endif %}
+        {% endwith %}
+
+
       <script type="text/javascript">
         $(function(){
             $("#upload-button").click(function() {
